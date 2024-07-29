@@ -1,5 +1,8 @@
 # wasabi-sync
 
+![](img/sync-or-backup-files-to-wasabi.png)
+*Sync or backup files to Wasabi*
+
 README.md WIP
 
 ## Summary
