@@ -5,7 +5,7 @@
 
 <figure>
 <div align="center" />
-    <img src="img/sync-or-backup-files-to-wasabi" alt="Sync or backup files to Wasabi" />
+    <img src="img/sync-or-backup-files-to-wasabi.png" alt="Sync or backup files to Wasabi" />
     <figcaption>Sync or backup files to Wasabi</figcaption>
 </div>
 </figure>
