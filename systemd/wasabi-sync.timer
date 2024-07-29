@@ -1,0 +1,13 @@
+[Unit]
+Description=Schedule wasabi-sync to run rclone to backup files to Wasabi Cloud Storage
+RefuseManualStart=no  
+RefuseManualStop=no   
+
+[Timer]
+Persistent=true
+OnBootSec=360
+OnCalendar=Tue *-*-* 02:30:00
+Unit=wasabi-backup.service
+
+[Install]
+WantedBy=timers.target

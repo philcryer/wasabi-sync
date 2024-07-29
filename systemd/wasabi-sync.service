@@ -1,0 +1,9 @@
+[Unit]
+Description=Run wasabi-sync to run rclone to backup files to Wasabi Cloud Storage
+
+[Service]
+Type=simple
+ExecStart=%h/bin/wasabi-sync
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+local_path="/media/phil/Elements-5T"
+directory_names=("Backups Music Pictures")
+wasabi_pref="pcc"
+wasabi_envi="wasabi-us-east-1"
+wasabi_path="${wasabi_envi}:${wasabi_pref}"
+log_file="${HOME}/.wasabi-sync.log"
+bin_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
+
+echo "[*] Run started at $(date)" | tee -a "${log_file}"
+
+if [ -f "${bin_path}/wasabi-sync-local" ]; then
+	echo "    Local-sync:" | tee -a "${log_file}"
+	echo "      + started: $(date --iso-8601=seconds)" | tee -a "${log_file}"
+	${bin_path}/wasabi_sync_local.sh
+	echo "      + completed: $(date --iso-8601=seconds)" | tee -a "${log_file}"
+fi
+
+for directory in ${directory_names}; do
+	echo "    ${directory}:" | tee -a "${log_file}"
+	echo "      + started: $(date --iso-8601=seconds)" | tee -a "${log_file}"
+	rclone sync --exclude='*/Downloads/**' --exclude='*/temporary/**' --exclude='*/.moc/**' --exclude='*/.bin/**' --exclude='*/.zoom/**' --exclude='*/.config/systemd/user/**' --exclude='*/.config/pulse/**' --progress --copy-links ${local_path}/${directory}/ ${wasabi_path}-${directory,,}/
+	echo "      + completed: $(date --iso-8601=seconds)" | tee -a "${log_file}"
+	echo "      + size: $(rclone size ${wasabi_path}-${directory,,}/ | tail -n1 | awk '{print $3,$4}')" | tee -a "${log_file}"
+done
+
+echo "[*] Run completed at $(date)" | tee -a "${log_file}"
+
+exit 0

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+rsync -av --delete /var/home/phil/bin /media/phil/Elements-5T/Backups/pcc-slug
+rsync -av --delete /var/home/phil/Docker --exclude cache/ --exclude Logs/ --exclude Scanners/ /media/phil/Elements-5T/Backups/pcc-slug --exclude Cache/ --exclude Logs/ --exclude localhost/ --exclude Metadata/ --exclude Databases/ --exclude cache/
+rsync -av --delete /var/home/phil/Documents/ /media/phil/Elements-5T/Backups/pcc-slug/Documents/
+rsync -av --delete /var/home/phil/.config/beets/ /media/phil/Elements-5T/Backups/pcc-slug/.config/beets/
+rsync -av --delete /var/home/phil/.config/systemd/ /media/phil/Elements-5T/Backups/pcc-slug/.config/systemd/
+rsync -av --delete /var/home/phil/.gitconfig /media/phil/Elements-5T/Backups/pcc-slug/.gitconfig
+rsync -av --delete /var/home/phil/.p1 /media/phil/Elements-5T/Backups/pcc-slug/.p1
+rsync -av --delete /var/home/phil/.ssh/ /media/phil/Elements-5T/Backups/pcc-slug/.ssh/
