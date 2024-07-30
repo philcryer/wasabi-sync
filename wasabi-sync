@@ -13,7 +13,7 @@ echo "[*] Run started at $(date)" | tee -a "${log_file}"
 if [ -f "${bin_path}/wasabi-sync-local" ]; then
 	echo "    Local-sync:" | tee -a "${log_file}"
 	echo "      + started: $(date --iso-8601=seconds)" | tee -a "${log_file}"
-	${bin_path}/wasabi_sync_local.sh
+	${bin_path}/wasabi_sync_local
 	echo "      + completed: $(date --iso-8601=seconds)" | tee -a "${log_file}"
 fi
 

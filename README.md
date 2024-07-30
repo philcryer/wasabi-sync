@@ -11,8 +11,22 @@
 
 ## Requirments
 
+* Debian/Ubuntu or other Debian variant 
+
 ```shell
-apt get install rsync rclone
+apt install rsync rclone
+```
+
+* Fedora/Silverblue or other Red Hat variant
+
+```shell
+dnf install rsync rclone
+```
+
+* Homebrew (MacOS / Linux)
+
+```shell
+brew install rsync rclone
 ```
 
 ## Steps
@@ -22,7 +36,7 @@ apt get install rsync rclone
 * wasabi-sync and wasabi-local
 
 ```shell
-git clone 
+git clone git@github.com:philcryer/wasabi-sync.git
 cd wasabi-sync
 mkdir -p ~/bin
 cp wasabi-sync wasabi-sync-local ~/bin
@@ -36,7 +50,20 @@ mkdir -p ~/.config/systemd/user/
 cp wasabi-sync.service wasabi-sync.timer ~/.config/systemd/user/
 ```
 
+
+
 ### Configure
+
+https://rclone.org/s3/#wasabi
+
+```shell
+rclone config
+
+n/s> n
+name> wasabi
+
+
+
 
 ### Enable
 
