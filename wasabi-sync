@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-local_path="/media/phil/Elements-5T"
+local_path="/media/${USER}/external"
 directory_names=("Backups Music Pictures")
-wasabi_pref="pcc"
+wasabi_pref="fak"
 wasabi_envi="wasabi-us-east-1"
 wasabi_path="${wasabi_envi}:${wasabi_pref}"
 log_file="${HOME}/.wasabi-sync.log"

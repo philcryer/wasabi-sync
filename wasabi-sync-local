@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
-rsync -av --delete /var/home/phil/bin /media/phil/Elements-5T/Backups/pcc-slug
-rsync -av --delete /var/home/phil/Docker --exclude cache/ --exclude Logs/ --exclude Scanners/ /media/phil/Elements-5T/Backups/pcc-slug --exclude Cache/ --exclude Logs/ --exclude localhost/ --exclude Metadata/ --exclude Databases/ --exclude cache/
-rsync -av --delete /var/home/phil/Documents/ /media/phil/Elements-5T/Backups/pcc-slug/Documents/
-rsync -av --delete /var/home/phil/.config/beets/ /media/phil/Elements-5T/Backups/pcc-slug/.config/beets/
-rsync -av --delete /var/home/phil/.config/systemd/ /media/phil/Elements-5T/Backups/pcc-slug/.config/systemd/
-rsync -av --delete /var/home/phil/.gitconfig /media/phil/Elements-5T/Backups/pcc-slug/.gitconfig
-rsync -av --delete /var/home/phil/.p1 /media/phil/Elements-5T/Backups/pcc-slug/.p1
-rsync -av --delete /var/home/phil/.ssh/ /media/phil/Elements-5T/Backups/pcc-slug/.ssh/
+# Documents - backup Documents directory
+#rsync -av --delete ${HOME}/Documents ${local_path}/Backups
+
+# Music - backup Music directory
+#rsync -av --delete ${HOME}/Music ${local_path}/Backups
+
+# Docker - backup docker directories and files, excluding some things you don't need to backup (logs, cache files, etc)
+#rsync -av --delete ${HOME}/Docker --exclude cache/ --exclude Logs/ --exclude Scanners/ --exclude Cache/ --exclude Logs/ --exclude localhost/ --exclude Metadata/ --exclude Databases/ --exclude cache/ ${local_path}/Backups
+
+# One off, hidden file/directories
+#rsync -av --delete ${HOME}/.config/beets/ ${local_path}/Backups/.config/beets/
+#rsync -av --delete ${HOME}/.gitconfig ${local_path}/Backups/.gitconfig
+#rsync -av --delete ${HOME}/.ssh/ ${local_path}/Backups/.ssh/

@@ -4,6 +4,8 @@ Description=Run wasabi-sync to run rclone to backup files to Wasabi Cloud Storag
 [Service]
 Type=simple
 ExecStart=%h/bin/wasabi-sync
+Restart=on-failure
+StandardOutput=file:%h/.wasabi-sync-systemd.log
 
 [Install]
 WantedBy=default.target

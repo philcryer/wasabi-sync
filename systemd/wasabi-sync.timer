@@ -6,8 +6,13 @@ RefuseManualStop=no
 [Timer]
 Persistent=true
 OnBootSec=360
-OnCalendar=Tue *-*-* 02:30:00
-Unit=wasabi-backup.service
+# Daily: will run everyday at midnight (*-*-* 00:00:00)
+#OnCalendar=Daily 
+# Weekly: will run on Mondays at midnight (Mon *-*-* 00:00:00)
+OnCalendar=Weekly
+# Custom: run Weekly on Wednesdays at 6:30 AM
+#OnCalendar=Wed *-*-* 14:30:00
+Unit=wasabi-sync.service
 
 [Install]
 WantedBy=timers.target
