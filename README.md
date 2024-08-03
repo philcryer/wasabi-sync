@@ -12,9 +12,8 @@
 I use [Wasabi](https://wasabi.com/) for cloud storage, and this script I've developed makes it simple to keep my files backed up to Wasabi's Cloud Object Storage. I choose Wasabi because it is:
 * [100% bit-compatible with Amazon S3](https://docs.wasabi.com/docs/since-wasabi-is-100-bit-compatible-with-amazon-s3-can-i-use-my-existing-s3-compatible-application-without-making-any-changes-to-my-application-with-wasabi) this means that it follows an accepted standard for cloud storage and interoperability, while allowing me to use existing S3 tools if I wanted to
 * Since it's S3 compatible I don't have to install some GUI tool or have some sort of extention to my file manager to be able to use the service. This is a big deal because I want to setup a sync process to run backups, schedule it and just let it run, all doable via code
-* It's affordable. While this is clearly [their own marketing](https://knowledgebase.wasabi.com/hc/en-us/articles/360002435072-How-does-the-cost-of-Wasabi-compare-to-the-true-cost-of-AWS-S3), in this example, "_$599/mo with Wasabi and over $3,500/mo with AWS S3* (AWS is 7x more expensive!)_"
-
-
+* It's more affordable, partially because they don't charge for egress (download tranfers) whereas most other cloud storage does
+  - Granted this is clearly [their own marketing](https://knowledgebase.wasabi.com/hc/en-us/articles/360002435072-How-does-the-cost-of-Wasabi-compare-to-the-true-cost-of-AWS-S3), in this example, "_$599/mo with Wasabi and over $3,500/mo with AWS S3* (AWS is 7x more expensive!)_"
 * It supports [Aegis Authenticator](https://getaegis.app/) my preferred 2FA application
 
 so it uses a standard instead of trying to reinvent the wheel, it doesn't require any tools that you have to install, so it's something I can script and throw in cron (but actually systemd, but that's cover later).
@@ -94,7 +93,7 @@ name> wasabi
 ...
 ```
 
-> [!NOTE}
+> [!NOTE]
 > This will walk you through configuring the buckets on Wasabi that you want to sync to
 
 * configure the `wasabi-sync` script and update the variables to match your configuration
